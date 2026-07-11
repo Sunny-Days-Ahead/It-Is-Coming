@@ -13,10 +13,10 @@ position = Vector2(265, 223)
 [node name="SouthButton" parent="." unique_id=771795868 instance=ExtResource("2_0xm2m")]
 position = Vector2(265, 278)
 
-[node name="EastButton" parent="." unique_id=2082669674 instance=ExtResource("2_0xm2m")]
+[node name="WestButton" parent="." unique_id=2082669674 instance=ExtResource("2_0xm2m")]
 position = Vector2(203, 248)
 
-[node name="WestButton" parent="." unique_id=1797465100 instance=ExtResource("2_0xm2m")]
+[node name="EastButton" parent="." unique_id=1797465100 instance=ExtResource("2_0xm2m")]
 position = Vector2(327, 248)
 
 [node name="Player" parent="." unique_id=653608189 instance=ExtResource("1_ig7tw")]
@@ -24,9 +24,10 @@ position = Vector2(264, 241)
 speed = 300.0
 
 [node name="Label" type="Label" parent="." unique_id=1897925235]
-offset_left = 230.0
-offset_top = 12.0
-offset_right = 315.0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 541.0
 offset_bottom = 35.0
 size_flags_horizontal = 4
-text = "GO NORTH"
+horizontal_alignment = 1
+vertical_alignment = 1
