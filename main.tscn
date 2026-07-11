@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://fjvhvikc2uli"]
+
+[ext_resource type="Script" uid="uid://ba8uunwt0rav7" path="res://main.gd" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://dwh8c2evag4ac" path="res://player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://ct7vr48ratonw" path="res://test_button.tscn" id="2_0xm2m"]
+
+[node name="Main" type="Node2D" unique_id=1189440462]
+script = ExtResource("1_h2yge")
+
+[node name="NorthButton" parent="." unique_id=1085595166 instance=ExtResource("2_0xm2m")]
+position = Vector2(265, 223)
+
+[node name="SouthButton" parent="." unique_id=771795868 instance=ExtResource("2_0xm2m")]
+position = Vector2(265, 278)
+
+[node name="EastButton" parent="." unique_id=2082669674 instance=ExtResource("2_0xm2m")]
+position = Vector2(203, 248)
+
+[node name="WestButton" parent="." unique_id=1797465100 instance=ExtResource("2_0xm2m")]
+position = Vector2(327, 248)
+
+[node name="Player" parent="." unique_id=653608189 instance=ExtResource("1_ig7tw")]
+position = Vector2(264, 241)
+speed = 300.0
