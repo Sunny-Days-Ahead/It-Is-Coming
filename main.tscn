@@ -22,3 +22,11 @@ position = Vector2(327, 248)
 [node name="Player" parent="." unique_id=653608189 instance=ExtResource("1_ig7tw")]
 position = Vector2(264, 241)
 speed = 300.0
+
+[node name="Label" type="Label" parent="." unique_id=1897925235]
+offset_left = 230.0
+offset_top = 12.0
+offset_right = 315.0
+offset_bottom = 35.0
+size_flags_horizontal = 4
+text = "GO NORTH"
