@@ -29,7 +29,7 @@ position = Vector2(220, 439)
 position = Vector2(157, 432)
 speed = 300.0
 
-[node name="Label" type="Label" parent="." unique_id=1585806605]
+[node name="Command" type="Label" parent="." unique_id=1585806605]
 offset_left = 65.0
 offset_top = 172.0
 offset_right = 254.0

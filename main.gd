@@ -16,7 +16,7 @@ func _ready() -> void:
 	$EastButton.button_pressed.connect(_on_button_pressed)
 	$WestButton.button_pressed.connect(_on_button_pressed)
 	buttons = [$NorthButton, $SouthButton, $WestButton, $EastButton]
-	$Label.text = ""
+	$Command.text = ""
 	new_sequence(length)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -36,24 +36,25 @@ func _on_button_pressed(pressed_button):
 		pointer += 1
 		if pointer >= sequence.size():
 			print("SAFE")
-			$Label.text = "SAFE"
+			$Command.text = "SAFE"
 			await get_tree().create_timer(1.5).timeout
-			$Label.text = ""
+			$Command.text = ""
 			pointer = 0
 			length += 1
 			if length > 4:
 				length = 4
 			new_sequence(length)
 	else:
-		print("HE IS COMING")
-		$Label.text = "HE IS COMING"
+		print("IT IS COMING")
+		$Command.text = "IT IS COMING"
 		await get_tree().create_timer(1.5).timeout
-		$Label.text = ""
+		$Command.text = ""
 		pointer = 0
 		length += 1
 		if length > 4:
 			length = 4
 		distance -= 1 
+		print(distance)
 		if distance < 1:
 			gameover()
 		else:
@@ -69,19 +70,19 @@ func _on_button_pressed(pressed_button):
 		#print("west pressed")
 		
 func gameover():
-	$Label.text = "IT HAS YOU"
+	$Command.text = "IT HAS YOU"
 	await get_tree().create_timer(5).timeout
 	get_tree().quit()
 	
 func print_escape(count):
 	for entry in range(count):
 		if sequence[entry] == $NorthButton:
-			$Label.text += "^ "
+			$Command.text += "^ "
 		if sequence[entry] == $EastButton:
-			$Label.text += "> "
+			$Command.text += "> "
 		if sequence[entry] == $WestButton:
-			$Label.text += "< "
+			$Command.text += "< "
 		if sequence[entry] == $SouthButton:
-			$Label.text += "v "
+			$Command.text += "v "
 	await get_tree().create_timer(2).timeout
-	$Label.text = ""	
+	$Command.text = ""	
