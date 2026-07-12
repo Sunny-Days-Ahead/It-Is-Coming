@@ -1,10 +1,13 @@
 extends Node2D
 
-var buttons : Array
+var buttons  : Array
 var sequence : Array
-var pointer : int
-var length : int 
+
+var pointer  : int
+var length   : int 
 var distance : int
+
+var score    : int
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -40,9 +43,7 @@ func _on_button_pressed(pressed_button):
 			await get_tree().create_timer(1.5).timeout
 			$Command.text = ""
 			pointer = 0
-			length += 1
-			if length > 4:
-				length = 4
+			increase_length()
 			new_sequence(length)
 	else:
 		print("IT IS COMING")
@@ -50,15 +51,8 @@ func _on_button_pressed(pressed_button):
 		await get_tree().create_timer(1.5).timeout
 		$Command.text = ""
 		pointer = 0
-		length += 1
-		if length > 4:
-			length = 4
-		distance -= 1 
-		print(distance)
-		if distance < 1:
-			gameover()
-		else:
-			new_sequence(length)
+		increase_length()
+		it_is_coming()
 		
 	#if pressed_button == $NorthButton:
 		#print("north pressed") 
@@ -86,3 +80,16 @@ func print_escape(count):
 			$Command.text += "v "
 	await get_tree().create_timer(2).timeout
 	$Command.text = ""	
+
+func increase_length():
+	length += 1
+	if length > 5:
+		length = 5
+		
+func it_is_coming():
+	distance -= 1 
+	print("distance " + str(distance))
+	if distance <= 0:
+		gameover()
+	else: 
+		new_sequence(length)
