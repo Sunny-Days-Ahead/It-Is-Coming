@@ -3,31 +3,36 @@
 [ext_resource type="Script" uid="uid://ba8uunwt0rav7" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://dwh8c2evag4ac" path="res://player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://ct7vr48ratonw" path="res://test_button.tscn" id="2_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://bxje3y40ble3w" path="res://Sprite-0001.png" id="2_1bvp3"]
 
 [node name="Main" type="Node2D" unique_id=1189440462]
 script = ExtResource("1_h2yge")
 
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1736485072]
+offset_right = 320.0
+offset_bottom = 540.0
+texture = ExtResource("2_1bvp3")
+
 [node name="NorthButton" parent="." unique_id=1085595166 instance=ExtResource("2_0xm2m")]
-position = Vector2(265, 223)
+position = Vector2(158, 414)
 
 [node name="SouthButton" parent="." unique_id=771795868 instance=ExtResource("2_0xm2m")]
-position = Vector2(265, 278)
+position = Vector2(158, 469)
 
 [node name="WestButton" parent="." unique_id=2082669674 instance=ExtResource("2_0xm2m")]
-position = Vector2(203, 248)
+position = Vector2(96, 439)
 
 [node name="EastButton" parent="." unique_id=1797465100 instance=ExtResource("2_0xm2m")]
-position = Vector2(327, 248)
+position = Vector2(220, 439)
 
 [node name="Player" parent="." unique_id=653608189 instance=ExtResource("1_ig7tw")]
-position = Vector2(264, 241)
+position = Vector2(157, 432)
 speed = 300.0
 
-[node name="Label" type="Label" parent="." unique_id=1897925235]
-offset_left = 2.0
-offset_top = 1.0
-offset_right = 541.0
-offset_bottom = 35.0
-size_flags_horizontal = 4
+[node name="Label" type="Label" parent="." unique_id=1585806605]
+offset_left = 65.0
+offset_top = 172.0
+offset_right = 254.0
+offset_bottom = 236.0
 horizontal_alignment = 1
-vertical_alignment = 1
+autowrap_mode = 2

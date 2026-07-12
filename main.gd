@@ -4,10 +4,13 @@ var buttons : Array
 var sequence : Array
 var pointer : int
 var length : int 
+var distance : int
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pointer = 0
 	length = 1
+	distance = 5
 	$NorthButton.button_pressed.connect(_on_button_pressed)
 	$SouthButton.button_pressed.connect(_on_button_pressed)
 	$EastButton.button_pressed.connect(_on_button_pressed)
@@ -26,18 +29,8 @@ func new_sequence(count):
 		
 	print(sequence)
 	print_escape(count)
-	#$Label.text = "PRESS " + str(sequence)
 
 func _on_button_pressed(pressed_button):
-#	if pressed_button == sequence:
-		#$Label.text = "SAFE"
-		#await get_tree().create_timer(1).timeout
-		#new_sequence()
-	#else:
-	#	$Label.text = "HE IS COMING"
-	#	await get_tree().create_timer(1).timeout
-	#	new_sequence()
-	#print("pressed successfully " + str(pressed_button))
 	if sequence[pointer] == pressed_button:
 		print("safe")
 		pointer += 1
@@ -48,6 +41,8 @@ func _on_button_pressed(pressed_button):
 			$Label.text = ""
 			pointer = 0
 			length += 1
+			if length > 4:
+				length = 4
 			new_sequence(length)
 	else:
 		print("HE IS COMING")
@@ -56,7 +51,14 @@ func _on_button_pressed(pressed_button):
 		$Label.text = ""
 		pointer = 0
 		length += 1
-		new_sequence(length)
+		if length > 4:
+			length = 4
+		distance -= 1 
+		if distance < 1:
+			gameover()
+		else:
+			new_sequence(length)
+		
 	#if pressed_button == $NorthButton:
 		#print("north pressed") 
 	#if pressed_button == $SouthButton:
@@ -65,15 +67,21 @@ func _on_button_pressed(pressed_button):
 		#print("east pressed")
 	#if pressed_button == $WestButton:
 		#print("west pressed")
+		
+func gameover():
+	$Label.text = "IT HAS YOU"
+	await get_tree().create_timer(5).timeout
+	get_tree().quit()
+	
 func print_escape(count):
 	for entry in range(count):
 		if sequence[entry] == $NorthButton:
-			$Label.text += "NORTH "
+			$Label.text += "^ "
 		if sequence[entry] == $EastButton:
-			$Label.text += "EAST "
+			$Label.text += "> "
 		if sequence[entry] == $WestButton:
-			$Label.text += "WEST "
+			$Label.text += "< "
 		if sequence[entry] == $SouthButton:
-			$Label.text += "SOUTH "
+			$Label.text += "v "
 	await get_tree().create_timer(2).timeout
 	$Label.text = ""	
