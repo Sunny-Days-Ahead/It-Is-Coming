@@ -5,8 +5,25 @@
 [ext_resource type="PackedScene" uid="uid://ct7vr48ratonw" path="res://test_button.tscn" id="2_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://bxje3y40ble3w" path="res://Sprite-0001.png" id="2_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://d13l2qv648u30" path="res://cabscreen monster placeholder.png" id="5_lquwl"]
+<<<<<<< Updated upstream
+[ext_resource type="Texture2D" path="res://particle texture.png" id="6_5vw27"]
 [ext_resource type="Shader" uid="uid://cvn5enlerb475" path="res://new_shader.gdshader" id="6_7mycd"]
 [ext_resource type="Texture2D" uid="uid://c4awtk3cs7kbi" path="res://the swipe.png" id="7_5vw27"]
+[ext_resource type="FontFile" path="res://KindlyRewind.ttf" id="8_ycdy4"]
+[ext_resource type="AudioStream" path="res://It_It_Coming.wav" id="10_ycdy4"]
+[ext_resource type="AudioStream" path="res://Crunch.wav" id="11_efxa6"]
+[ext_resource type="AudioStream" path="res://It_Has_You.wav" id="11_ycdy4"]
+[ext_resource type="AudioStream" path="res://FootSteps.wav" id="12_dg77c"]
+=======
+[ext_resource type="Texture2D" uid="uid://ccm4c1kve7k8f" path="res://particle texture.png" id="6_5vw27"]
+[ext_resource type="Shader" uid="uid://cvn5enlerb475" path="res://new_shader.gdshader" id="6_7mycd"]
+[ext_resource type="Texture2D" uid="uid://c4awtk3cs7kbi" path="res://the swipe.png" id="7_5vw27"]
+[ext_resource type="FontFile" uid="uid://30bcogup4kxv" path="res://KindlyRewind.ttf" id="8_ycdy4"]
+[ext_resource type="AudioStream" uid="uid://rrit5ghxffoq" path="res://It_It_Coming.wav" id="10_ycdy4"]
+[ext_resource type="AudioStream" uid="uid://2is6c4hq3d13" path="res://Crunch.wav" id="11_efxa6"]
+[ext_resource type="AudioStream" uid="uid://nr5vh78oaob1" path="res://It_Has_You.wav" id="11_ycdy4"]
+[ext_resource type="AudioStream" uid="uid://djlq20ni57m30" path="res://FootSteps.wav" id="12_dg77c"]
+>>>>>>> Stashed changes
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7mycd"]
 atlas = ExtResource("5_lquwl")
@@ -25,6 +42,34 @@ atlas = ExtResource("5_lquwl")
 region = Rect2(190, 0, 190, 164)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4c57u"]
+atlas = ExtResource("5_lquwl")
+region = Rect2(0, 0, 190, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_074og"]
+atlas = ExtResource("5_lquwl")
+region = Rect2(950, 0, 190, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cegan"]
+atlas = ExtResource("5_lquwl")
+region = Rect2(1140, 0, 190, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_82xsv"]
+atlas = ExtResource("5_lquwl")
+region = Rect2(1330, 0, 190, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_getpj"]
+atlas = ExtResource("5_lquwl")
+region = Rect2(570, 0, 190, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ryguw"]
+atlas = ExtResource("5_lquwl")
+region = Rect2(380, 0, 190, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d13ii"]
+atlas = ExtResource("5_lquwl")
+region = Rect2(190, 0, 190, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1u8w0"]
 atlas = ExtResource("5_lquwl")
 region = Rect2(0, 0, 190, 164)
 
@@ -69,11 +114,55 @@ animations = [{
 "loop": 1,
 "name": &"distance_5",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_074og")
+}],
+"loop": 1,
+"name": &"it_has_you_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cegan")
+}],
+"loop": 1,
+"name": &"it_has_you_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_82xsv")
+}],
+"loop": 1,
+"name": &"it_has_you_3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_getpj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ryguw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d13ii")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1u8w0")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": 0,
+"name": &"leaving",
+"speed": 5.0
 }]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kek77"]
 shader = ExtResource("6_7mycd")
-shader_parameter/smearing = 0.5
+shader_parameter/smearing = 0.0970000046075
 shader_parameter/color_offset = 0.00100000167744
 shader_parameter/sharpening = 0.38400001824
 shader_parameter/static_noise = 0.22000001045
@@ -83,6 +172,11 @@ shader_parameter/crack_size = 0.0
 shader_parameter/vertical_jitter = 0.002
 shader_parameter/scanline_opacity = 0.1
 shader_parameter/vignette_intensity = 0.3
+
+[sub_resource type="LabelSettings" id="LabelSettings_t10fk"]
+font = ExtResource("8_ycdy4")
+font_size = 12
+font_color = Color(0, 0.8271661, 0.098500974, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_efxa6"]
 atlas = ExtResource("7_5vw27")
@@ -141,11 +235,13 @@ animations = [{
 "speed": 21.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf21c"]
-size = Vector2(319, 152)
-
 [node name="Main" type="Node2D" unique_id=1189440462]
 script = ExtResource("1_h2yge")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=493213725]
+offset_right = 323.0
+offset_bottom = 542.0
+color = Color(0, 0, 0, 1)
 
 [node name="Cabinet" type="TextureRect" parent="." unique_id=1736485072]
 offset_right = 320.0
@@ -167,12 +263,30 @@ position = Vector2(220, 439)
 [node name="Player" parent="." unique_id=653608189 instance=ExtResource("1_ig7tw")]
 position = Vector2(157, 432)
 collision_mask = 6
-speed = 300.0
+speed = 75.0
 
 [node name="CabScreen" type="AnimatedSprite2D" parent="." unique_id=440551952]
 position = Vector2(160, 254)
 sprite_frames = SubResource("SpriteFrames_yf21c")
-animation = &"distance_5"
+animation = &"it_has_you_2"
+autoplay = "distance_5"
+
+[node name="Crunch" type="CPUParticles2D" parent="CabScreen" unique_id=66464610]
+position = Vector2(1, 2)
+emitting = false
+amount = 6
+texture = ExtResource("6_5vw27")
+lifetime = 0.75
+one_shot = true
+explosiveness = 0.62
+randomness = 0.57
+direction = Vector2(0, -10)
+spread = 25.0
+gravity = Vector2(0, 420)
+initial_velocity_min = 131.39
+initial_velocity_max = 189.78
+angular_velocity_min = 126.13
+angular_velocity_max = 126.13
 
 [node name="Control" type="Control" parent="CabScreen" unique_id=1764241775]
 layout_mode = 3
@@ -193,14 +307,18 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = -1.0
+offset_right = -2.0
+offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Command" type="Label" parent="." unique_id=1585806605]
-offset_left = 65.0
-offset_top = 172.0
-offset_right = 254.0
-offset_bottom = 236.0
+[node name="Command" type="Label" parent="CabScreen/Control" unique_id=1585806605]
+layout_mode = 0
+offset_right = 189.0
+offset_bottom = 64.0
+label_settings = SubResource("LabelSettings_t10fk")
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -208,9 +326,21 @@ autowrap_mode = 2
 position = Vector2(160, 270)
 sprite_frames = SubResource("SpriteFrames_skdil")
 
-[node name="Area2D" type="Area2D" parent="Swipe" unique_id=1964532735]
-collision_layer = 4
+[node name="Audio" type="Node" parent="." unique_id=1499452155]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Swipe/Area2D" unique_id=1522791430]
-position = Vector2(0.5, 188)
-shape = SubResource("RectangleShape2D_yf21c")
+[node name="ItIsComing" type="AudioStreamPlayer2D" parent="Audio" unique_id=905791190]
+stream = ExtResource("10_ycdy4")
+
+[node name="ItHasYou" type="AudioStreamPlayer2D" parent="Audio" unique_id=519274964]
+stream = ExtResource("11_ycdy4")
+
+[node name="CrunchSound" type="AudioStreamPlayer2D" parent="Audio" unique_id=2116363738]
+stream = ExtResource("11_efxa6")
+
+[node name="FootSteps" type="AudioStreamPlayer2D" parent="Audio" unique_id=1669446517]
+stream = ExtResource("12_dg77c")
+pitch_scale = 0.69
+
+[connection signal="animation_finished" from="CabScreen" to="." method="_on_cab_screen_animation_finished"]
+[connection signal="animation_finished" from="Swipe" to="." method="_on_swipe_animation_finished"]
+[connection signal="finished" from="Audio/ItIsComing" to="." method="_on_it_is_coming_finished"]

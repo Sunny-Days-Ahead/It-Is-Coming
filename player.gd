@@ -5,11 +5,11 @@ extends CharacterBody2D
 var direction : Vector2
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	speed = 5000
+	pass
 	
 func _process(delta: float) -> void:
 	direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	velocity = direction * speed * delta 
+	velocity = direction * speed 
 	if direction.x == 0 and direction.y == 0:
 		$AnimatedSprite2D.play("default")
 	else:
