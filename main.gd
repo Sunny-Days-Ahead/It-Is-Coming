@@ -9,11 +9,13 @@ var distance : int
 
 var score    : int
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pointer = 0
 	length = 1
 	distance = 5
+	
 	$NorthButton.button_pressed.connect(_on_button_pressed)
 	$SouthButton.button_pressed.connect(_on_button_pressed)
 	$EastButton.button_pressed.connect(_on_button_pressed)
@@ -63,7 +65,10 @@ func _on_button_pressed(pressed_button):
 		
 func gameover():
 	$Command.text = "IT HAS YOU"
-	await get_tree().create_timer(5).timeout
+	$Swipe.play("default")
+	$Player.queue_free()
+	
+	await get_tree().create_timer(15).timeout
 	get_tree().quit()
 	
 func print_escape(count):

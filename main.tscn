@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bxje3y40ble3w" path="res://Sprite-0001.png" id="2_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://d13l2qv648u30" path="res://cabscreen monster placeholder.png" id="5_lquwl"]
 [ext_resource type="Shader" uid="uid://cvn5enlerb475" path="res://new_shader.gdshader" id="6_7mycd"]
+[ext_resource type="Texture2D" uid="uid://c4awtk3cs7kbi" path="res://the swipe.png" id="7_5vw27"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7mycd"]
 atlas = ExtResource("5_lquwl")
@@ -73,7 +74,7 @@ animations = [{
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kek77"]
 shader = ExtResource("6_7mycd")
 shader_parameter/smearing = 0.5
-shader_parameter/color_offset = 0.0010000016774400003
+shader_parameter/color_offset = 0.00100000167744
 shader_parameter/sharpening = 0.38400001824
 shader_parameter/static_noise = 0.22000001045
 shader_parameter/crack_center = Vector2(0, 0)
@@ -82,6 +83,66 @@ shader_parameter/crack_size = 0.0
 shader_parameter/vertical_jitter = 0.002
 shader_parameter/scanline_opacity = 0.1
 shader_parameter/vignette_intensity = 0.3
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efxa6"]
+atlas = ExtResource("7_5vw27")
+region = Rect2(0, 0, 320, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dg77c"]
+atlas = ExtResource("7_5vw27")
+region = Rect2(320, 0, 320, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ycdy4"]
+atlas = ExtResource("7_5vw27")
+region = Rect2(640, 0, 320, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w48qg"]
+atlas = ExtResource("7_5vw27")
+region = Rect2(960, 0, 320, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vivmo"]
+atlas = ExtResource("7_5vw27")
+region = Rect2(1280, 0, 320, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cqfq"]
+atlas = ExtResource("7_5vw27")
+region = Rect2(1600, 0, 320, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yaehf"]
+atlas = ExtResource("7_5vw27")
+region = Rect2(1920, 0, 320, 540)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_skdil"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_efxa6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dg77c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ycdy4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w48qg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vivmo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2cqfq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yaehf")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 21.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf21c"]
+size = Vector2(319, 152)
 
 [node name="Main" type="Node2D" unique_id=1189440462]
 script = ExtResource("1_h2yge")
@@ -105,6 +166,7 @@ position = Vector2(220, 439)
 
 [node name="Player" parent="." unique_id=653608189 instance=ExtResource("1_ig7tw")]
 position = Vector2(157, 432)
+collision_mask = 6
 speed = 300.0
 
 [node name="CabScreen" type="AnimatedSprite2D" parent="." unique_id=440551952]
@@ -141,3 +203,14 @@ offset_right = 254.0
 offset_bottom = 236.0
 horizontal_alignment = 1
 autowrap_mode = 2
+
+[node name="Swipe" type="AnimatedSprite2D" parent="." unique_id=1273932777]
+position = Vector2(160, 270)
+sprite_frames = SubResource("SpriteFrames_skdil")
+
+[node name="Area2D" type="Area2D" parent="Swipe" unique_id=1964532735]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Swipe/Area2D" unique_id=1522791430]
+position = Vector2(0.5, 188)
+shape = SubResource("RectangleShape2D_yf21c")
