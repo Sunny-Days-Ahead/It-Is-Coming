@@ -25,6 +25,7 @@ func _ready() -> void:
 	$CabScreen/Control/Command.text = ""
 	new_sequence(length)
 
+
 func new_sequence(count):
 	sequence.resize(count)
 	for entry in range(count):
@@ -82,7 +83,8 @@ func print_escape(count):
 			$CabScreen/Control/Command.text += "v "
 	await get_tree().create_timer(2).timeout
 	$CabScreen/Control/Command.text = ""	
-	$TimeLeft.start(5)
+	$TimeLeft.wait_time = 5.0
+	$TimeLeft.start()
 
 func increase_length():
 	length += 1
@@ -119,7 +121,6 @@ func it_is_coming():
 
 
 func _on_swipe_animation_finished() -> void:
-	
 	$CabScreen.animation = "it_has_you_1"
 	await get_tree().create_timer(2).timeout
 	$CabScreen.animation = "it_has_you_2"
