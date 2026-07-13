@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://bxje3y40ble3w" path="res://Sprite-0001.png" id="2_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://d13l2qv648u30" path="res://cabscreen monster placeholder.png" id="5_lquwl"]
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
 [ext_resource type="Texture2D" path="res://particle texture.png" id="6_5vw27"]
 [ext_resource type="Shader" uid="uid://cvn5enlerb475" path="res://new_shader.gdshader" id="6_7mycd"]
 [ext_resource type="Texture2D" uid="uid://c4awtk3cs7kbi" path="res://the swipe.png" id="7_5vw27"]
@@ -19,19 +18,11 @@
 [ext_resource type="Texture2D" uid="uid://ccm4c1kve7k8f" path="res://particle texture.png" id="6_5vw27"]
 [ext_resource type="Shader" uid="uid://cvn5enlerb475" path="res://new_shader.gdshader" id="6_7mycd"]
 [ext_resource type="Texture2D" uid="uid://c4awtk3cs7kbi" path="res://the swipe.png" id="7_5vw27"]
-=======
-[ext_resource type="Texture2D" uid="uid://ccm4c1kve7k8f" path="res://particle texture.png" id="6_5vw27"]
-[ext_resource type="Shader" uid="uid://cvn5enlerb475" path="res://new_shader.gdshader" id="6_7mycd"]
-[ext_resource type="Texture2D" uid="uid://c4awtk3cs7kbi" path="res://the swipe.png" id="7_5vw27"]
->>>>>>> Stashed changes
 [ext_resource type="FontFile" uid="uid://30bcogup4kxv" path="res://KindlyRewind.ttf" id="8_ycdy4"]
 [ext_resource type="AudioStream" uid="uid://rrit5ghxffoq" path="res://It_It_Coming.wav" id="10_ycdy4"]
 [ext_resource type="AudioStream" uid="uid://2is6c4hq3d13" path="res://Crunch.wav" id="11_efxa6"]
 [ext_resource type="AudioStream" uid="uid://nr5vh78oaob1" path="res://It_Has_You.wav" id="11_ycdy4"]
 [ext_resource type="AudioStream" uid="uid://djlq20ni57m30" path="res://FootSteps.wav" id="12_dg77c"]
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
 >>>>>>> Stashed changes
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7mycd"]
