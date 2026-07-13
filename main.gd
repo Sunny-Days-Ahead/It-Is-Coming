@@ -34,8 +34,10 @@ func new_sequence(count):
 	print_escape(count)
 
 func _on_button_pressed(pressed_button):
+	if pointer >= sequence.size():
+		return
+		
 	if sequence[pointer] == pressed_button:
-		print("safe")
 		pointer += 1
 		if pointer >= sequence.size():
 			print("SAFE")
@@ -46,10 +48,6 @@ func _on_button_pressed(pressed_button):
 			increase_length()
 			new_sequence(length)
 	else:
-		print("IT IS COMING")
-		$Command.text = "IT IS COMING"
-		await get_tree().create_timer(1.5).timeout
-		$Command.text = ""
 		pointer = 0
 		increase_length()
 		it_is_coming()
@@ -85,10 +83,26 @@ func increase_length():
 	length += 1
 	if length > 5:
 		length = 5
-		
+	else:
+		pass 
 func it_is_coming():
+	print("IT IS COMING")
+	$Command.text = "IT IS COMING"
+	await get_tree().create_timer(1.5).timeout
+	$Command.text = ""
 	distance -= 1 
-	print("distance " + str(distance))
+	match distance: 
+		5:
+			$CabScreen.animation = "distance_5"
+		4:
+			$CabScreen.animation = "distance_4"
+		3:
+			$CabScreen.animation = "distance_3"
+		2:
+			$CabScreen.animation = "distance_2"
+		1:
+			$CabScreen.animation = "distance_1"
+	print("distance left " + str(distance))
 	if distance <= 0:
 		gameover()
 	else: 
