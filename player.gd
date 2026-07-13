@@ -7,7 +7,7 @@ var direction : Vector2
 func _ready() -> void:
 	pass
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = direction * speed 
 	if direction.x == 0 and direction.y == 0:

@@ -164,7 +164,7 @@ shader_parameter/static_noise = 0.22000001045
 shader_parameter/crack_center = Vector2(0, 0)
 shader_parameter/crack_intensity = 0.0
 shader_parameter/crack_size = 0.0
-shader_parameter/vertical_jitter = 0.002
+shader_parameter/vertical_jitter = 0.0030000001425
 shader_parameter/scanline_opacity = 0.1
 shader_parameter/vignette_intensity = 0.3
 
@@ -228,6 +228,11 @@ animations = [{
 [node name="Main" type="Node2D" unique_id=1189440462]
 script = ExtResource("1_h2yge")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2145128490]
+offset_right = 320.0
+offset_bottom = 541.0
+color = Color(0, 0, 0, 1)
+
 [node name="Cabinet" type="TextureRect" parent="." unique_id=1736485072]
 offset_right = 320.0
 offset_bottom = 540.0
@@ -253,7 +258,7 @@ speed = 75.0
 [node name="CabScreen" type="AnimatedSprite2D" parent="." unique_id=440551952]
 position = Vector2(160, 253)
 sprite_frames = SubResource("SpriteFrames_yf21c")
-animation = &"leaving"
+animation = &"distance_5"
 
 [node name="Crunch" type="CPUParticles2D" parent="CabScreen" unique_id=229127523]
 position = Vector2(-1, 5)
@@ -283,6 +288,13 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
+[node name="Command" type="Label" parent="CabScreen/Control" unique_id=1585806605]
+layout_mode = 0
+offset_right = 189.0
+offset_bottom = 64.0
+horizontal_alignment = 1
+autowrap_mode = 2
+
 [node name="ColorRect" type="ColorRect" parent="CabScreen/Control" unique_id=2145418054]
 material = SubResource("ShaderMaterial_kek77")
 layout_mode = 1
@@ -292,16 +304,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Command" type="Label" parent="CabScreen/Control" unique_id=1585806605]
-layout_mode = 0
-offset_right = 189.0
-offset_bottom = 64.0
-horizontal_alignment = 1
-autowrap_mode = 2
-
 [node name="Swipe" type="AnimatedSprite2D" parent="." unique_id=1273932777]
 position = Vector2(160, 270)
 sprite_frames = SubResource("SpriteFrames_skdil")
+
+[node name="TimeLeft" type="Timer" parent="." unique_id=57628030]
+wait_time = 5.0
 
 [node name="Audio" type="Node" parent="." unique_id=1638421427]
 
@@ -319,4 +327,5 @@ stream = ExtResource("11_ycdy4")
 
 [connection signal="animation_finished" from="CabScreen" to="." method="_on_cab_screen_animation_finished"]
 [connection signal="animation_finished" from="Swipe" to="." method="_on_swipe_animation_finished"]
+[connection signal="timeout" from="TimeLeft" to="." method="_on_time_left_timeout"]
 [connection signal="finished" from="Audio/ItIsComing" to="." method="_on_it_is_coming_finished"]

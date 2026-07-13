@@ -41,6 +41,7 @@ func _on_button_pressed(pressed_button):
 		pointer += 1
 		if pointer >= sequence.size():
 			print("SAFE")
+			$TimeLeft.stop()
 			$CabScreen/Control/Command.text = "SAFE"
 			await get_tree().create_timer(1.5).timeout
 			$CabScreen/Control/Command.text = ""
@@ -65,8 +66,10 @@ func _on_button_pressed(pressed_button):
 func gameover():
 	$CabScreen/Control/Command.text = "IT HAS YOU"
 	$Audio/ItHasYou.play()
-	$Swipe.play("default")
-	$Player.queue_free()
+	if is_instance_valid($Player) == true:
+		$Swipe.play("default")
+		$Player.queue_free()
+	
 func print_escape(count):
 	for entry in range(count):
 		if sequence[entry] == $NorthButton:
@@ -79,6 +82,7 @@ func print_escape(count):
 			$CabScreen/Control/Command.text += "v "
 	await get_tree().create_timer(2).timeout
 	$CabScreen/Control/Command.text = ""	
+	$TimeLeft.start(5)
 
 func increase_length():
 	length += 1
@@ -86,6 +90,7 @@ func increase_length():
 		length = 5
 	else:
 		pass 
+		
 func it_is_coming():
 	print("IT IS COMING")
 	if distance > 1:
@@ -132,3 +137,7 @@ func _on_cab_screen_animation_finished() -> void:
 
 func _on_it_is_coming_finished() -> void:
 	$Audio/FootSteps.play()
+
+
+func _on_time_left_timeout() -> void:
+	it_is_coming()
