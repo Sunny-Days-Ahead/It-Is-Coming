@@ -67,7 +67,6 @@ func gameover():
 	$Audio/ItHasYou.play()
 	$Swipe.play("default")
 	$Player.queue_free()
-	
 func print_escape(count):
 	for entry in range(count):
 		if sequence[entry] == $NorthButton:
@@ -124,7 +123,7 @@ func _on_swipe_animation_finished() -> void:
 	await get_tree().create_timer(2).timeout
 	$CabScreen.animation = "it_has_you_3"
 	await get_tree().create_timer(2).timeout
-	$CabScreen.animation = "leaving"
+	$CabScreen.play("leaving")
 	$CabScreen/Control/Command.text = "Final Score: " + str(score)
 	
 func _on_cab_screen_animation_finished() -> void:
