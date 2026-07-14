@@ -30,7 +30,6 @@ func enter() -> void:
 	state_machine.set_textbox("IT IS COMING")
 	fail_sfx.play()
 	display_timeout.start()
-	print(cab_shader_material.get_shader_parameter("static_noise"))
 	
 	match distance: 
 		6:
