@@ -14,7 +14,7 @@ var score    : int
 func _ready() -> void:
 	pointer = 0
 	length = 1
-	distance = 5
+	distance = 6
 	score = 0
 	
 	$NorthButton.button_pressed.connect(_on_button_pressed)
@@ -65,6 +65,7 @@ func _on_button_pressed(pressed_button):
 		#print("west pressed")
 		
 func gameover():
+	$TimeLeft.stop()
 	$CabScreen/Control/Command.text = "IT HAS YOU"
 	$Audio/ItHasYou.play()
 	if is_instance_valid($Player) == true:
@@ -103,8 +104,10 @@ func it_is_coming():
 	$CabScreen/Control/Command.text = ""
 	distance -= 1 
 	match distance: 
+		6:
+			$CabScreen.animation = "distance_6"
 		5:
-			$CabScreen.animation = "distance_5"
+			$CabScreen.play("distance_5")
 		4:
 			$CabScreen.animation = "distance_4"
 		3:

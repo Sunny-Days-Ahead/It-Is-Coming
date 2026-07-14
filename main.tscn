@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bxje3y40ble3w" path="res://Sprite-0001.png" id="2_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://ccm4c1kve7k8f" path="res://particle texture.png" id="5_dg77c"]
 [ext_resource type="Texture2D" uid="uid://d13l2qv648u30" path="res://cabscreen monster placeholder.png" id="5_lquwl"]
+[ext_resource type="Texture2D" uid="uid://be1yvfhfqy8pw" path="res://cabscreen monster v.5.png" id="5_ycdy4"]
 [ext_resource type="Shader" uid="uid://cvn5enlerb475" path="res://new_shader.gdshader" id="6_7mycd"]
 [ext_resource type="Texture2D" uid="uid://c4awtk3cs7kbi" path="res://the swipe.png" id="7_5vw27"]
 [ext_resource type="AudioStream" uid="uid://rrit5ghxffoq" path="res://It_It_Coming.wav" id="8_5vw27"]
@@ -13,24 +14,36 @@
 [ext_resource type="AudioStream" uid="uid://djlq20ni57m30" path="res://FootSteps.wav" id="10_dg77c"]
 [ext_resource type="AudioStream" uid="uid://2is6c4hq3d13" path="res://Crunch.wav" id="11_ycdy4"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7mycd"]
-atlas = ExtResource("5_lquwl")
+[sub_resource type="AtlasTexture" id="AtlasTexture_getpj"]
+atlas = ExtResource("5_ycdy4")
+region = Rect2(950, 0, 190, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ryguw"]
+atlas = ExtResource("5_ycdy4")
 region = Rect2(760, 0, 190, 164)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_272bh"]
-atlas = ExtResource("5_lquwl")
+[sub_resource type="AtlasTexture" id="AtlasTexture_d13ii"]
+atlas = ExtResource("5_ycdy4")
 region = Rect2(570, 0, 190, 164)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5vw27"]
-atlas = ExtResource("5_lquwl")
-region = Rect2(380, 0, 190, 164)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kek77"]
 atlas = ExtResource("5_lquwl")
 region = Rect2(190, 0, 190, 164)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4c57u"]
-atlas = ExtResource("5_lquwl")
+[sub_resource type="AtlasTexture" id="AtlasTexture_1u8w0"]
+atlas = ExtResource("5_ycdy4")
+region = Rect2(380, 0, 190, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0odxb"]
+atlas = ExtResource("5_ycdy4")
+region = Rect2(190, 0, 190, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lswn8"]
+atlas = ExtResource("5_ycdy4")
+region = Rect2(0, 0, 190, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jq2sk"]
+atlas = ExtResource("5_ycdy4")
 region = Rect2(0, 0, 190, 164)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_074og"]
@@ -45,31 +58,35 @@ region = Rect2(1140, 0, 190, 164)
 atlas = ExtResource("5_lquwl")
 region = Rect2(1330, 0, 190, 164)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_getpj"]
-atlas = ExtResource("5_lquwl")
+[sub_resource type="AtlasTexture" id="AtlasTexture_a6jrf"]
+atlas = ExtResource("5_ycdy4")
+region = Rect2(950, 0, 190, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xuqvo"]
+atlas = ExtResource("5_ycdy4")
 region = Rect2(760, 0, 190, 164)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ryguw"]
-atlas = ExtResource("5_lquwl")
+[sub_resource type="AtlasTexture" id="AtlasTexture_qsp4k"]
+atlas = ExtResource("5_ycdy4")
 region = Rect2(570, 0, 190, 164)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_d13ii"]
-atlas = ExtResource("5_lquwl")
+[sub_resource type="AtlasTexture" id="AtlasTexture_kq58d"]
+atlas = ExtResource("5_ycdy4")
 region = Rect2(380, 0, 190, 164)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1u8w0"]
-atlas = ExtResource("5_lquwl")
+[sub_resource type="AtlasTexture" id="AtlasTexture_seu75"]
+atlas = ExtResource("5_ycdy4")
 region = Rect2(190, 0, 190, 164)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0odxb"]
-atlas = ExtResource("5_lquwl")
+[sub_resource type="AtlasTexture" id="AtlasTexture_htxhm"]
+atlas = ExtResource("5_ycdy4")
 region = Rect2(0, 0, 190, 164)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yf21c"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7mycd")
+"texture": SubResource("AtlasTexture_getpj")
 }],
 "loop": 1,
 "name": &"distance_1",
@@ -77,7 +94,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_272bh")
+"texture": SubResource("AtlasTexture_ryguw")
 }],
 "loop": 1,
 "name": &"distance_2",
@@ -85,7 +102,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5vw27")
+"texture": SubResource("AtlasTexture_d13ii")
 }],
 "loop": 1,
 "name": &"distance_3",
@@ -94,17 +111,31 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_kek77")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1u8w0")
 }],
 "loop": 1,
 "name": &"distance_4",
-"speed": 5.0
+"speed": 0.2
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4c57u")
+"texture": SubResource("AtlasTexture_0odxb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lswn8")
 }],
 "loop": 1,
 "name": &"distance_5",
+"speed": 0.2
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jq2sk")
+}],
+"loop": 1,
+"name": &"distance_6",
 "speed": 5.0
 }, {
 "frames": [{
@@ -133,19 +164,22 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_getpj")
+"texture": SubResource("AtlasTexture_a6jrf")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ryguw")
+"texture": SubResource("AtlasTexture_xuqvo")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_d13ii")
+"texture": SubResource("AtlasTexture_qsp4k")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1u8w0")
+"texture": SubResource("AtlasTexture_kq58d")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0odxb")
+"texture": SubResource("AtlasTexture_seu75")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_htxhm")
 }, {
 "duration": 1.0,
 "texture": null
@@ -258,7 +292,7 @@ speed = 75.0
 [node name="CabScreen" type="AnimatedSprite2D" parent="." unique_id=440551952]
 position = Vector2(160, 253)
 sprite_frames = SubResource("SpriteFrames_yf21c")
-animation = &"distance_5"
+animation = &"distance_6"
 
 [node name="Crunch" type="CPUParticles2D" parent="CabScreen" unique_id=229127523]
 position = Vector2(-1, 5)
@@ -310,6 +344,7 @@ sprite_frames = SubResource("SpriteFrames_skdil")
 
 [node name="TimeLeft" type="Timer" parent="." unique_id=57628030]
 wait_time = 5.0
+one_shot = true
 
 [node name="Audio" type="Node" parent="." unique_id=1638421427]
 
