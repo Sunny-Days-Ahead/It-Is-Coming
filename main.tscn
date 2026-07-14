@@ -211,7 +211,7 @@ shader = ExtResource("6_7mycd")
 shader_parameter/smearing = 0.1590000075525
 shader_parameter/color_offset = 0.00100000167744
 shader_parameter/sharpening = 0.38400001824
-shader_parameter/static_noise = 0.22000001045
+shader_parameter/static_noise = 0.110000005225
 shader_parameter/crack_center = Vector2(0, 0)
 shader_parameter/crack_intensity = 0.0
 shader_parameter/crack_size = 0.0
@@ -432,12 +432,13 @@ metadata/_custom_type_script = "uid://xmr3p4wrraye"
 wait_time = 1.5
 one_shot = true
 
-[node name="Fail" type="Node" parent="StateMachine" unique_id=14318945 node_paths=PackedStringArray("display_timeout", "fail_sfx", "step_sfx", "cab_screen")]
+[node name="Fail" type="Node" parent="StateMachine" unique_id=14318945 node_paths=PackedStringArray("display_timeout", "fail_sfx", "step_sfx", "cab_screen", "cab_shader")]
 script = ExtResource("17_074og")
 display_timeout = NodePath("DisplayTimeout")
 fail_sfx = NodePath("../../Audio/ItIsComing")
 step_sfx = NodePath("../../Audio/FootSteps")
 cab_screen = NodePath("../../CabScreen")
+cab_shader = NodePath("../../CabScreen/Control/Shader")
 state_name = &"fail"
 metadata/_custom_type_script = "uid://xmr3p4wrraye"
 

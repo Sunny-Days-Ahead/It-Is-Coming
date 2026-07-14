@@ -2,7 +2,7 @@ shader_type canvas_item;
 
 uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_linear;
 
-group_uniforms Signal_Distortion;
+
 uniform float smearing : hint_range(0.0, 1.0) = 0.5;
 uniform float color_offset : hint_range(-0.05, 0.05) = 0.005;
 uniform float sharpening : hint_range(0.0, 1.0) = 0.4;
