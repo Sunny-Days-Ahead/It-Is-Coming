@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://ct7vr48ratonw"]
+
+[ext_resource type="Script" uid="uid://sms1gqbsoofa" path="res://scenes/button/test_button.gd" id="1_85oix"]
+[ext_resource type="Texture2D" uid="uid://3dh4r6djduuj" path="res://assets/gfx/Sprite-0002-Sheet.png" id="1_t2pil"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85oix"]
+atlas = ExtResource("1_t2pil")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xgq8h"]
+atlas = ExtResource("1_t2pil")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85oix")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xgq8h")
+}],
+"loop": 1,
+"name": &"pressed",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_onrkg"]
+radius = 15.0
+height = 40.0
+
+[node name="TestButton" type="Area2D" unique_id=1085595166]
+collision_layer = 2
+script = ExtResource("1_85oix")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=69913402]
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1510191087]
+position = Vector2(0, -2)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_onrkg")
+debug_color = Color(0.9495682, 0.1562553, 0.4184342, 0.41960785)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="button_pressed" from="." to="." method="_on_button_pressed"]
