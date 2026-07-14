@@ -13,6 +13,8 @@
 [ext_resource type="AudioStream" uid="uid://nr5vh78oaob1" path="res://It_Has_You.wav" id="9_efxa6"]
 [ext_resource type="AudioStream" uid="uid://djlq20ni57m30" path="res://FootSteps.wav" id="10_dg77c"]
 [ext_resource type="AudioStream" uid="uid://2is6c4hq3d13" path="res://Crunch.wav" id="11_ycdy4"]
+[ext_resource type="Script" uid="uid://4qqeu40g0ga7" path="res://game_state_machine.gd" id="14_vivmo"]
+[ext_resource type="Script" uid="uid://domlnp60ofse4" path="res://start_phase.gd" id="15_vivmo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_getpj"]
 atlas = ExtResource("5_ycdy4")
@@ -359,6 +361,17 @@ stream = ExtResource("10_dg77c")
 
 [node name="CrunchSound" type="AudioStreamPlayer2D" parent="Audio" unique_id=1972831641]
 stream = ExtResource("11_ycdy4")
+
+[node name="StateMachine" type="Node" parent="." unique_id=775837666 node_paths=PackedStringArray("initial_state", "controlled_node")]
+script = ExtResource("14_vivmo")
+initial_state = NodePath("StartPhase")
+controlled_node = NodePath("..")
+metadata/_custom_type_script = "uid://bnuyec0xe7i0k"
+
+[node name="StartPhase" type="Node" parent="StateMachine" unique_id=2002990411]
+script = ExtResource("15_vivmo")
+state_name = &"StartPhase"
+metadata/_custom_type_script = "uid://xmr3p4wrraye"
 
 [connection signal="animation_finished" from="CabScreen" to="." method="_on_cab_screen_animation_finished"]
 [connection signal="animation_finished" from="Swipe" to="." method="_on_swipe_animation_finished"]

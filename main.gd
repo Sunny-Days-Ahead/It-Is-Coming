@@ -48,6 +48,9 @@ func _on_button_pressed(pressed_button):
 			$CabScreen/Control/Command.text = ""
 			pointer = 0
 			score += 1
+			if $TimeLeft.is_stopped() == false:
+				$TimeLeft.stop()
+				print($TimeLeft.time_left6)
 			increase_length()
 			new_sequence(length)
 	else:
@@ -60,7 +63,7 @@ func _on_button_pressed(pressed_button):
 	#if pressed_button == $SouthButton:
 		#print("south pressed")
 	#if pressed_button == $EastButton:
-		#print("east pressed")
+		#print("east pressed") 
 	#if pressed_button == $WestButton:
 		#print("west pressed")
 		
