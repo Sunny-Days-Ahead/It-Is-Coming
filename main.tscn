@@ -312,7 +312,7 @@ position = Vector2(220, 439)
 [node name="Player" parent="." unique_id=653608189 instance=ExtResource("1_ig7tw")]
 position = Vector2(157, 432)
 collision_mask = 6
-speed = 75.0
+speed = 100.0
 
 [node name="CabScreen" type="AnimatedSprite2D" parent="." unique_id=440551952]
 position = Vector2(160, 253)
@@ -454,10 +454,6 @@ crunch_fx = NodePath("../../CabScreen/Crunch")
 swipe_anim = NodePath("../../Swipe")
 state_name = &"game_over"
 metadata/_custom_type_script = "uid://xmr3p4wrraye"
-
-[node name="DisplayTimeout" type="Timer" parent="StateMachine/GameOver" unique_id=687754656]
-wait_time = 1.5
-one_shot = true
 
 [connection signal="animation_finished" from="CabScreen" to="StateMachine/GameOver" method="_on_cab_screen_animation_finished"]
 [connection signal="animation_finished" from="Swipe" to="StateMachine/GameOver" method="_on_swipe_animation_finished"]
