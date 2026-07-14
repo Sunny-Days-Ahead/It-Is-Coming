@@ -10,6 +10,7 @@
 [ext_resource type="Shader" uid="uid://cvn5enlerb475" path="res://shaders/new_shader.gdshader" id="6_7mycd"]
 [ext_resource type="Texture2D" uid="uid://c4awtk3cs7kbi" path="res://assets/gfx/the swipe.png" id="7_5vw27"]
 [ext_resource type="AudioStream" uid="uid://rrit5ghxffoq" path="res://assets/sfx/It_It_Coming.wav" id="8_5vw27"]
+[ext_resource type="FontFile" uid="uid://30bcogup4kxv" path="res://assets/fonts/KindlyRewind.ttf" id="8_cegan"]
 [ext_resource type="AudioStream" uid="uid://nr5vh78oaob1" path="res://assets/sfx/It_Has_You.wav" id="9_efxa6"]
 [ext_resource type="AudioStream" uid="uid://djlq20ni57m30" path="res://assets/sfx/FootSteps.wav" id="10_dg77c"]
 [ext_resource type="AudioStream" uid="uid://2is6c4hq3d13" path="res://assets/sfx/Crunch.wav" id="11_ycdy4"]
@@ -194,6 +195,17 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="LabelSettings" id="LabelSettings_cegan"]
+font_size = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yf5fn"]
+bg_color = Color(0.41568628, 0, 0.0627451, 0.5686275)
+
+[sub_resource type="Theme" id="Theme_g4v7s"]
+Label/fonts/font = ExtResource("8_cegan")
+ProgressBar/fonts/font = ExtResource("8_cegan")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_yf5fn")
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kek77"]
 shader = ExtResource("6_7mycd")
 shader_parameter/smearing = 0.1590000075525
@@ -264,17 +276,13 @@ animations = [{
 "speed": 21.0
 }]
 
-[node name="Main" type="Node2D" unique_id=1189440462 node_paths=PackedStringArray("player", "up_button", "down_button", "left_button", "right_button", "crunch_sfx", "footstep_sfx", "it_is_coming_sfx", "it_has_you_sfx", "command_text_box")]
+[node name="Main" type="Node2D" unique_id=1189440462 node_paths=PackedStringArray("player", "up_button", "down_button", "left_button", "right_button", "command_text_box")]
 script = ExtResource("1_h2yge")
 player = NodePath("Player")
 up_button = NodePath("Buttons/UpButton")
 down_button = NodePath("Buttons/DownButton")
 left_button = NodePath("Buttons/LeftButton")
 right_button = NodePath("Buttons/RightButton")
-crunch_sfx = NodePath("Audio/CrunchSound")
-footstep_sfx = NodePath("Audio/FootSteps")
-it_is_coming_sfx = NodePath("Audio/ItIsComing")
-it_has_you_sfx = NodePath("Audio/ItHasYou")
 command_text_box = NodePath("CabScreen/Control/Command")
 
 [node name="BG" type="ColorRect" parent="." unique_id=2145128490]
@@ -344,8 +352,26 @@ custom_maximum_size = Vector2(190, -1)
 layout_mode = 0
 offset_right = 189.0
 offset_bottom = 64.0
+label_settings = SubResource("LabelSettings_cegan")
 horizontal_alignment = 1
 autowrap_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="CabScreen/Control" unique_id=745730501]
+custom_minimum_size = Vector2(100, 5)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -95.0
+offset_top = -5.0
+offset_right = 95.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_g4v7s")
+step = 1.0
+show_percentage = false
 
 [node name="Shader" type="ColorRect" parent="CabScreen/Control" unique_id=2145418054]
 material = SubResource("ShaderMaterial_kek77")
@@ -380,10 +406,11 @@ initial_state = NodePath("TurnActive")
 controlled_node = NodePath("..")
 metadata/_custom_type_script = "uid://bnuyec0xe7i0k"
 
-[node name="TurnActive" type="Node" parent="StateMachine" unique_id=447861172 node_paths=PackedStringArray("time_left", "display_timeout")]
+[node name="TurnActive" type="Node" parent="StateMachine" unique_id=447861172 node_paths=PackedStringArray("time_left", "display_timeout", "time_bar")]
 script = ExtResource("15_yaehf")
 time_left = NodePath("TimeLeft")
 display_timeout = NodePath("DisplayTimeout")
+time_bar = NodePath("../../CabScreen/Control/ProgressBar")
 state_name = &"turn_active"
 metadata/_custom_type_script = "uid://xmr3p4wrraye"
 

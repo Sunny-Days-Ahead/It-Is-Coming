@@ -10,13 +10,6 @@ extends Node2D
 
 var buttons: Array[Area2D]
 
-
-@export_category("SFX")
-@export var crunch_sfx: AudioStreamPlayer2D
-@export var footstep_sfx: AudioStreamPlayer2D
-@export var it_is_coming_sfx: AudioStreamPlayer2D
-@export var it_has_you_sfx: AudioStreamPlayer2D
-
 @export_category("UI Nodes")
 @export var command_text_box: Label
 
@@ -27,4 +20,3 @@ func _ready() -> void:
 	buttons = [up_button, down_button, left_button, right_button]
 	for button in buttons:
 		button.button_pressed.connect($StateMachine/TurnActive._on_button_pressed)
-		

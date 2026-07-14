@@ -7,11 +7,9 @@ extends State
 @export var cab_screen: AnimatedSprite2D
 
 var distance: int = 6
-
 var steps_done: bool = false
 var timer_done: bool = false
 
-## To be implemented by the inheriting node. Called when the state is first entered.
 func enter() -> void:
 	steps_done = false
 	timer_done = false
@@ -40,20 +38,10 @@ func enter() -> void:
 		1:
 			cab_screen.animation = "distance_1"
 	
-
-## To be implemented by the inheriting node. Called when the state is exited.
-func exit() -> void:
-	pass
-
 ## To be implemented by the inheriting node. Called with _process
 func update(_delta: float) -> void:
 	if steps_done and timer_done:
 		transition_to("turn_active")
-
-## To be implemented by the inheriting node. Called with _physics_process
-func physics_update(_delta: float) -> void:
-	pass
-
 
 func _on_display_timeout_timeout() -> void:
 	state_machine.set_textbox("")

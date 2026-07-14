@@ -4,12 +4,13 @@ extends State
 @export var time_left : Timer 
 @export var display_timeout : Timer
 
+@export var time_bar : ProgressBar
+
 var sequence : Array[Area2D]
 var sequence_size : int = 1
 var turn_length: float = 5.0
 var pointer: int = 0
 
-## To be implemented by the inheriting node. Called when the state is first entered.
 func enter() -> void:
 	new_sequence()
 	print_escape()
@@ -17,7 +18,6 @@ func enter() -> void:
 	time_left.wait_time = turn_length
 	time_left.start()
 
-## To be implemented by the inheriting node. Called when the state is exited.
 func exit() -> void:
 	time_left.stop()
 	display_timeout.stop()
@@ -30,11 +30,8 @@ func exit() -> void:
 
 ## To be implemented by the inheriting node. Called with _process
 func update(_delta: float) -> void:
-	pass
-
-## To be implemented by the inheriting node. Called with _physics_process
-func physics_update(_delta: float) -> void:
-	pass
+	time_bar.max_value = turn_length
+	time_bar.value = time_left.time_left
 
 
 func _on_time_left_timeout() -> void:
