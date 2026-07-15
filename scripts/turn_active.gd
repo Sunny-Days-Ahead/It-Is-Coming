@@ -6,6 +6,8 @@ extends State
 
 @export var time_bar : ProgressBar
 
+@export var button_sound : AudioStreamPlayer2D
+
 var sequence : Array[Area2D]
 var sequence_size : int = 1
 var turn_length: float = 5.0
@@ -41,6 +43,7 @@ func _on_display_timeout_timeout() -> void:
 	state_machine.set_textbox("")
 
 func _on_button_pressed(pressed_button):
+	button_sound.play()
 	if sequence[pointer] == pressed_button:
 		pointer += 1
 	else:
