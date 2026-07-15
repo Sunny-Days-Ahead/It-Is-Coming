@@ -54,7 +54,9 @@ func new_sequence():
 	sequence.resize(sequence_size)
 	for entry in range(sequence_size):
 		sequence[entry] = state_machine.controlled_node.buttons.pick_random()
-
+	if sequence_size == 5:
+		turn_length = 6.0
+	
 func print_escape():
 	for entry in range(sequence.size()):
 		if sequence[entry] == state_machine.controlled_node.up_button:
