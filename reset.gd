@@ -27,7 +27,6 @@ func enter() -> void:
 	state_machine.controlled_node.player.global_position.x = 157.0
 	state_machine.controlled_node.player.global_position.y = 432.0
 	state_machine.controlled_node.player.show()
-	
 	transition_to("turn_active")
 ## To be implemented by the inheriting node. Called when the state is exited.
 func exit() -> void:
