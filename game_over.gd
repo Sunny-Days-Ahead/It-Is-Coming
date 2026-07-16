@@ -12,7 +12,9 @@ func enter() -> void:
 	state_machine.set_textbox("IT HAS YOU")
 	gameover_sfx.play()
 	swipe_anim.play("default")
-	state_machine.controlled_node.player.queue_free()
+	state_machine.controlled_node.player.hide()
+	state_machine.controlled_node.player.global_position.x = 0
+	state_machine.controlled_node.player.global_position.y = 0
 	
 func _on_swipe_animation_finished() -> void:
 	cab_screen.animation = "it_has_you_1"
@@ -27,5 +29,7 @@ func _on_swipe_animation_finished() -> void:
 	state_machine.set_textbox("Final Score: " + str(state_machine.controlled_node.score))
 	
 func _on_cab_screen_animation_finished() -> void:
+	if state_machine.controlled_node.score == 2:
+		print("test case 1")
 	if cab_screen.animation == "leaving":
-		get_tree().quit()
+		transition_to("reset")
