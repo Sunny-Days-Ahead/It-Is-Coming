@@ -14,20 +14,12 @@ var cab_shader_material: ShaderMaterial
 @export var static_sfx: AudioStreamPlayer
 ## To be implemented by the inheriting node. Called when the state is first entered.
 func enter() -> void:
-	cab_shader_material = cab_shader.material
-	state_machine.controlled_node.score = 0
-	turn_active.sequence_size = 1
-	turn_active.turn_length = 5.0
-	turn_active.pointer = 0
-	fail.distance = 6
-	cab_screen.animation = "distance_6"
-	cab_shader_material.set_shader_parameter("static_noise", 0.11)
-	static_sfx.volume_db = -5.0
-	state_machine.set_textbox("")
-	state_machine.controlled_node.player.global_position.x = 157.0
-	state_machine.controlled_node.player.global_position.y = 432.0
-	state_machine.controlled_node.player.show()
-	transition_to("turn_active")
+	if state_machine.controlled_node.score == 5:
+		reset()
+		transition_to("turn_active_loop_2")
+	if state_machine.controlled_node.score < 5: 
+		reset()
+		transition_to("turn_active")
 ## To be implemented by the inheriting node. Called when the state is exited.
 func exit() -> void:
 	pass
@@ -41,3 +33,18 @@ func update(_delta: float) -> void:
 ## To be implemented by the inheriting node. Called with _physics_process
 func physics_update(_delta: float) -> void:
 	pass
+	
+func reset():
+		cab_shader_material = cab_shader.material
+		state_machine.controlled_node.score = 0
+		turn_active.sequence_size = 1
+		turn_active.turn_length = 5.0
+		turn_active.pointer = 0
+		fail.distance = 6
+		cab_screen.animation = "distance_6"
+		cab_shader_material.set_shader_parameter("static_noise", 0.11)
+		static_sfx.volume_db = -5.0
+		state_machine.set_textbox("")
+		state_machine.controlled_node.player.global_position.x = 157.0
+		state_machine.controlled_node.player.global_position.y = 432.0
+		state_machine.controlled_node.player.show()

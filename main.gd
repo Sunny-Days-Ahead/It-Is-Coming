@@ -21,5 +21,13 @@ func _ready() -> void:
 	buttons = [up_button, down_button, left_button, right_button]
 	for button in buttons:
 		button.button_pressed.connect($StateMachine/TurnActive._on_button_pressed)
-
-	
+		
+func switch_to_loop_1():
+	for button in buttons:
+		button.button_pressed.disconnect(%TurnActive2Loop2._on_button_pressed)
+		button.button_pressed.connect($StateMachine/TurnActive._on_button_pressed)
+		
+func switch_to_loop_2():
+	for button in buttons:
+		button.button_pressed.disconnect($StateMachine/TurnActive._on_button_pressed)
+		button.button_pressed.connect(%TurnActive2Loop2._on_button_pressed)
