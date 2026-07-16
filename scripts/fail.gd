@@ -41,7 +41,7 @@ func enter() -> void:
 			cab_shader_material.set_shader_parameter("static_noise", 0.22)
 			static_sfx.volume_db = -4.0
 		4:
-			cab_screen.animation = "distance_4"
+			cab_screen.play("distance_4")
 			cab_shader_material.set_shader_parameter("static_noise", 0.33)
 			static_sfx.volume_db = -3.0
 		3:
