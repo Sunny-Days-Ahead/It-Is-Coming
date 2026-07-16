@@ -14,10 +14,13 @@ var cab_shader_material: ShaderMaterial
 @export var static_sfx: AudioStreamPlayer
 ## To be implemented by the inheriting node. Called when the state is first entered.
 func enter() -> void:
-	if state_machine.controlled_node.score == 5:
+	if state_machine.controlled_node.score == 10:
 		reset()
 		transition_to("turn_active_loop_2")
-	if state_machine.controlled_node.score < 5: 
+	if state_machine.controlled_node.score <= 9: 
+		reset()
+		transition_to("turn_active")
+	if state_machine.controlled_node.score >= 11:
 		reset()
 		transition_to("turn_active")
 ## To be implemented by the inheriting node. Called when the state is exited.
