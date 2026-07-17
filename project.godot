@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="It is Coming"
-run/main_scene="uid://ebmcqb2o41jr"
+run/main_scene="uid://fjvhvikc2uli"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="uid://bnob0mpb0p48y"
 
