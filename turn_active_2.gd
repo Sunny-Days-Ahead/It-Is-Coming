@@ -42,7 +42,7 @@ func _on_time_left_timeout() -> void:
 func _on_display_timeout_timeout() -> void:
 	state_machine.set_textbox("")
 
-func _on_button_pressed(pressed_button):
+func _on_button_pressed(_pressed_button):
 	button_sound.play()
 	button_presses += 1
 	if button_presses == 3:

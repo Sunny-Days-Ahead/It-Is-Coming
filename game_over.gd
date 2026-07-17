@@ -6,9 +6,11 @@ extends State
 @export_category("Cabinet")
 @export var cab_screen: AnimatedSprite2D
 @export var crunch_fx: CPUParticles2D
+@export var drool_fx: CPUParticles2D
 @export var swipe_anim: AnimatedSprite2D
 
 func enter() -> void:
+	drool_fx.emitting = false 
 	state_machine.set_textbox("IT HAS YOU")
 	gameover_sfx.play()
 	swipe_anim.play("default")

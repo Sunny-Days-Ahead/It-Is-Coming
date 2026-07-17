@@ -8,6 +8,7 @@ extends State
 @export_category("Cabinet")
 @export var cab_screen: AnimatedSprite2D
 @export var cab_shader: ColorRect
+@export var drool_fx: CPUParticles2D
 
 var cab_shader_material: ShaderMaterial
 
@@ -56,11 +57,13 @@ func enter() -> void:
 			cab_screen.animation = "distance_1"
 			cab_shader_material.set_shader_parameter("static_noise", 0.66)
 			static_sfx.volume_db = 0.0
+			drool_fx.emitting = true
 
 ## To be implemented by the inheriting node. Called with _process
 func update(_delta: float) -> void:
 	if steps_done and timer_done:
 		transition_to("turn_active")
+		
 
 func _on_display_timeout_timeout() -> void:
 	state_machine.set_textbox("")
