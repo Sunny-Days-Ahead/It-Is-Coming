@@ -13,6 +13,9 @@ var buttons: Array[Area2D]
 @export_category("UI Nodes")
 @export var command_text_box: Label
 
+@export_category("Loop States")
+@export var loop_1 : State
+@export var loop_2 : State
 
 var score    : int = 0
 
@@ -20,14 +23,14 @@ var score    : int = 0
 func _ready() -> void:
 	buttons = [up_button, down_button, left_button, right_button]
 	for button in buttons:
-		button.button_pressed.connect($StateMachine/TurnActive._on_button_pressed)
+		button.button_pressed.connect(loop_1._on_button_pressed)
 		
 func switch_to_loop_1():
 	for button in buttons:
-		button.button_pressed.disconnect(%TurnActive2Loop2._on_button_pressed)
-		button.button_pressed.connect($StateMachine/TurnActive._on_button_pressed)
+		button.button_pressed.disconnect(loop_2._on_button_pressed)
+		button.button_pressed.connect(loop_1._on_button_pressed)
 		
 func switch_to_loop_2():
 	for button in buttons:
-		button.button_pressed.disconnect($StateMachine/TurnActive._on_button_pressed)
-		button.button_pressed.connect(%TurnActive2Loop2._on_button_pressed)
+		button.button_pressed.disconnect(loop_1._on_button_pressed)
+		button.button_pressed.connect(loop_2._on_button_pressed)
