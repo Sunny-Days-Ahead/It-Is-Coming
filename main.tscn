@@ -26,6 +26,15 @@
 [ext_resource type="Script" uid="uid://qcj6vrd3ikti" path="res://reset.gd" id="21_getpj"]
 [ext_resource type="Script" uid="uid://elti8v5ufpni" path="res://turn_active_2.gd" id="25_0odxb"]
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0yivw"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2kmos"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_q0ng5"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2thus"]
+distance = -33.0
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_getpj"]
 atlas = ExtResource("5_ycdy4")
 region = Rect2(950, 0, 190, 164)
@@ -583,8 +592,39 @@ position = Vector2(220, 435)
 
 [node name="Player" parent="." unique_id=653608189 instance=ExtResource("1_ig7tw")]
 position = Vector2(157, 432)
-collision_mask = 6
+collision_mask = 14
 speed = 100.0
+
+[node name="TopBoundary" type="StaticBody2D" parent="." unique_id=89483993]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopBoundary" unique_id=1929049743]
+position = Vector2(94, 379.00006)
+rotation = 3.1415927
+shape = SubResource("WorldBoundaryShape2D_0yivw")
+
+[node name="BottomBoundary" type="StaticBody2D" parent="." unique_id=1833218068]
+position = Vector2(95, 528)
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomBoundary" unique_id=283814136]
+shape = SubResource("WorldBoundaryShape2D_2kmos")
+
+[node name="LeftBoundary" type="StaticBody2D" parent="." unique_id=1109336090]
+rotation = 1.5707964
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftBoundary" unique_id=1890114996]
+shape = SubResource("WorldBoundaryShape2D_q0ng5")
+
+[node name="RightBoundary" type="StaticBody2D" parent="." unique_id=527149434]
+rotation = 1.5707964
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightBoundary" unique_id=386429668]
+position = Vector2(-1.2588878e-05, -288)
+rotation = 3.1415927
+shape = SubResource("WorldBoundaryShape2D_2thus")
 
 [node name="CabScreen" type="AnimatedSprite2D" parent="." unique_id=440551952]
 position = Vector2(160, 253)
